@@ -1,0 +1,27 @@
+{
+  "name": "express-shopping-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fakeDb.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melawong/express-shoppinglist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melawong/express-shoppinglist/issues"
+  },
+  "homepage": "https://github.com/melawong/express-shoppinglist#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "express": "^5.0.0-beta.1"
+  },
+  "devDependencies": {
+    "supertest": "^6.2.2"
+  }
+}
