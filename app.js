@@ -14,7 +14,7 @@ app.use("/items", cartRoutes);
 
 /** 404 handler: matches unmatched routes. */
 app.use(function (req, res) {
-  throw new NotFoundError();
+  throw new Error("page not found");
 });
 
 /** Error handler: logs stacktrace and returns JSON error message. */
