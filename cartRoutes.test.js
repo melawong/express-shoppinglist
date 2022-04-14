@@ -8,8 +8,7 @@ const db = require("./fakeDb");
 let popsicle = { name: "popsicle", price: 1.45 };
 let cheerios = { name: "cheerios", price: 3.40 };
 
-beforeEach(function ()
-{
+beforeEach(function () {
   db.items = [popsicle];
 });
 
@@ -27,18 +26,18 @@ describe("GET /items", function () {
 
     expect(resp.body).toEqual({ items: [popsicle] });
   });
-})
+});
 
 /** POST /items - add item to list; return item */
 
-describe("POST /items", function() {
-  it("Adds item to shopping list", async function() {
+describe("POST /items", function () {
+  it("Adds item to shopping list", async function () {
     const resp = await request(app)
       .post(`/items`)
       .send(cheerios);
-    debugger
+    debugger;
     expect(resp.statusCode).toEqual(201);
-    expect(resp.body).toEqual({added: cheerios});
+    expect(resp.body).toEqual({ added: cheerios });
     expect(db.items.length).toEqual(2);
   });
 });
@@ -52,4 +51,16 @@ describe("GET /items/:name", function () {
 
     expect(resp.body).toEqual(popsicle);
   });
-})
+});
+
+/** POST /items - add item to list; return item */
+
+describe("PATCH /items", function () {
+  it("Updates item from shopping list", async function () {
+    const resp = await request(app)
+      .patch(`/items`)
+      .send(cheerios);
+    expect(resp.statusCode).toEqual(200);
+    expect(resp.body).toEqual({ updated: cheerios });
+  });
+});
